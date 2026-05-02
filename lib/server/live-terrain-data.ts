@@ -144,7 +144,7 @@ function dangerFromRose(value: unknown) {
 
 function advisoryProblems(advisory: UacAdvisory) {
   return [1, 2, 3]
-    .map((index) => {
+    .map((index): ForecastZone["avalancheProblems"][number] | null => {
       const type = cleanText(advisory[`avalanche_problem_${index}`]);
       if (!type) {
         return null;
