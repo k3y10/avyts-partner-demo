@@ -267,7 +267,7 @@ export async function listPrimarySnowpackStations() {
   const dailyByTriplet = indexStationData(dailyData);
   const hourlyByTriplet = indexStationData(hourlyData);
 
-  const stations = ZONE_SNOWPACK_REFERENCES.map((reference) => {
+  const stations = ZONE_SNOWPACK_REFERENCES.map((reference): WeatherStation | null => {
     const stationMetadata = metadataByTriplet.get(reference.stationTriplet);
     if (!stationMetadata) {
       return null;
