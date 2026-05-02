@@ -40,7 +40,7 @@ export const useMapStore = create<MapStore>((set) => ({
   toggleLayer: (layerId) => set((state) => {
     if ((METRIC_LAYER_IDS as readonly string[]).includes(layerId)) {
       const isEnabling = !state.layers[layerId];
-      const nextLayers = { ...state.layers };
+      const nextLayers: MapStore["layers"] = { ...state.layers };
 
       for (const metricLayerId of METRIC_LAYER_IDS) {
         nextLayers[metricLayerId] = false;
@@ -56,7 +56,7 @@ export const useMapStore = create<MapStore>((set) => ({
 
     if (layerId === "terrainHazardHex") {
       const isEnabled = !state.layers.terrainHazardHex;
-      const nextLayers = { ...state.layers, terrainHazardHex: isEnabled };
+      const nextLayers: MapStore["layers"] = { ...state.layers, terrainHazardHex: isEnabled };
 
       if (!isEnabled) {
         for (const metricLayerId of METRIC_LAYER_IDS) {

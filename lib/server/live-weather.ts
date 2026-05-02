@@ -208,7 +208,7 @@ async function fetchZoneStations(zone: ZoneWeatherReference) {
   const candidates = selectCandidates(stationCollection.features ?? [], 1);
 
   const stations = await Promise.all(
-    candidates.map(async (candidate) => {
+    candidates.map(async (candidate): Promise<WeatherStation | null> => {
       const stationId = candidate.properties?.stationIdentifier ?? candidate.id?.split("/").pop();
       const latestUrl = `${candidate.id?.replace(/\/$/, "")}/observations/latest`;
 
