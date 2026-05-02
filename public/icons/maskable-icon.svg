@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="96" fill="#0F172A"/>
+  <circle cx="256" cy="204" r="132" fill="#F59E0B" fill-opacity="0.18"/>
+  <path d="M120 366C180 292 214 238 256 172C298 238 332 292 392 366H120Z" fill="#F8FAFC"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Inter, sans-serif" font-size="62" font-weight="800" fill="#38BDF8">AvyTS</text>
+</svg>

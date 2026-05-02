@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Observation {
+  id                String   @id
+  type              String
+  zoneId            String
+  source            String
+  observedAt        DateTime
+  title             String
+  summary           String
+  locationName      String
+  geometry          Json
+  tags              Json
+  avalancheObserved Boolean
+  media             Json
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([zoneId, observedAt(sort: Desc)])
+  @@index([observedAt(sort: Desc)])
+}

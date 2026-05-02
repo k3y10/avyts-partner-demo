@@ -1,0 +1,6 @@
+.next/
+node_modules/
+.pytest_cache/
+data/dem/
+.env
+.env.local

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" fill="none">
+  <rect width="192" height="192" rx="48" fill="#133B63"/>
+  <path d="M38 140C59 111 74 86 96 54C118 86 133 111 154 140H38Z" fill="#F8FAFC"/>
+  <path d="M48 140H144V156C144 160.418 140.418 164 136 164H56C51.582 164 48 160.418 48 156V140Z" fill="#0F172A"/>
+  <text x="96" y="126" text-anchor="middle" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#F59E0B">A</text>
+  <text x="96" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#F8FAFC">AvyTS</text>
+</svg>
