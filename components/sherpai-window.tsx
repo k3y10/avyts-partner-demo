@@ -104,8 +104,8 @@ export function SherpAIWindow({
   }
 
   return (
-    <section className={cn("flex min-h-0 max-h-full flex-col overflow-hidden rounded-[1.35rem] border border-slate-200/90 bg-[linear-gradient(180deg,#ffffff_0%,#f7fafc_100%)] shadow-[0_24px_60px_rgba(15,23,42,0.12)] dark:border-white/10 dark:bg-[linear-gradient(180deg,#08101c_0%,#0f172a_100%)]", className)}>
-      <div className="border-b border-slate-200/85 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.14),transparent_34%),linear-gradient(180deg,#fbfdff_0%,#f3f8fc_100%)] p-4 dark:border-white/10 dark:bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.12),transparent_32%),linear-gradient(180deg,#09111d_0%,#0f172a_100%)]">
+    <section className={cn("glass-card relative flex min-h-0 max-h-full flex-col overflow-hidden rounded-[1.35rem] ring-1 ring-white/45 shadow-[0_30px_82px_rgba(15,23,42,0.18)] dark:ring-white/6", className)}>
+      <div className="border-b border-white/65 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.22),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(243,248,252,0.92)_100%)] p-4 backdrop-blur-2xl dark:border-white/10 dark:bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_32%),linear-gradient(180deg,rgba(8,16,28,0.96)_0%,rgba(15,23,42,0.92)_100%)]">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex min-w-0 items-start gap-3">
             <div className="relative mt-0.5 shrink-0 rounded-[1.05rem] border border-sky-100 bg-[linear-gradient(180deg,#ffffff_0%,#ecf6ff_100%)] p-2.5 shadow-[0_10px_24px_rgba(14,165,233,0.18)] dark:border-sky-400/20 dark:bg-[linear-gradient(180deg,rgba(56,189,248,0.14)_0%,rgba(15,23,42,0.92)_100%)]">
@@ -115,14 +115,14 @@ export function SherpAIWindow({
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-sky-700 dark:text-sky-300">
                 <span>{kicker}</span>
-                <span className="rounded-full border border-sky-200/80 bg-white/85 px-2 py-0.5 text-[9px] tracking-[0.18em] text-sky-700 dark:border-sky-400/20 dark:bg-sky-400/10 dark:text-sky-200">Live</span>
+                <span className="rounded-full border border-sky-200/80 bg-white/92 px-2 py-0.5 text-[9px] tracking-[0.18em] text-sky-700 shadow-[0_8px_18px_rgba(14,165,233,0.12)] dark:border-sky-400/20 dark:bg-sky-400/12 dark:text-sky-200">Live</span>
               </div>
               <div className="mt-1 text-[1.08rem] font-semibold leading-6 text-slate-950 dark:text-white">{title}</div>
               <p className="mt-2 max-w-[56ch] text-sm leading-6 text-slate-600 dark:text-slate-300">{summary}</p>
             </div>
           </div>
           {hideModeBadge ? null : (
-            <div className="self-start rounded-full border border-slate-200 bg-white/90 px-3 py-1.5 text-right text-[11px] font-medium text-slate-600 shadow-sm dark:border-white/10 dark:bg-slate-900/85 dark:text-slate-300">
+            <div className="self-start rounded-full border border-slate-200/85 bg-white/94 px-3 py-1.5 text-right text-[11px] font-medium text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/88 dark:text-slate-200">
               {roleLabel ? <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">{roleLabel}</div> : null}
               <div>{modeLabel}</div>
             </div>
@@ -132,7 +132,7 @@ export function SherpAIWindow({
         {showContextPills && contextPills.length ? (
           <div className="mt-3 flex flex-wrap gap-2">
             {contextPills.slice(0, 3).map((pill) => (
-              <span key={pill} className="rounded-full border border-slate-200/80 bg-white/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+              <span key={pill} className="rounded-full border border-slate-200/80 bg-white/92 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.05)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/88 dark:text-slate-200">
                 {pill}
               </span>
             ))}
@@ -142,7 +142,7 @@ export function SherpAIWindow({
         {metrics.length ? (
           <div className="mt-4 grid gap-2 sm:grid-cols-3">
             {metrics.map((metric) => (
-              <div key={metric.label} className="rounded-[0.95rem] border border-slate-200/70 bg-white/85 px-3 py-2 shadow-[0_8px_18px_rgba(15,23,42,0.04)] dark:border-white/10 dark:bg-white/5">
+              <div key={metric.label} className="rounded-[0.95rem] border border-slate-200/75 bg-white/92 px-3 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/82">
                 <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                   <metric.icon className="h-3.5 w-3.5 text-sky-700 dark:text-sky-300" /> {metric.label}
                 </div>
@@ -157,7 +157,7 @@ export function SherpAIWindow({
         {children}
 
         {showPromptPack ? (
-          <div className={cn(children ? "mt-4" : "", "rounded-[1rem] border border-slate-200/80 bg-[linear-gradient(180deg,#f8fafc_0%,#f2f7fb_100%)] p-4 dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.03)_100%)]")}>
+          <div className={cn(children ? "mt-4" : "", "glass-popover rounded-[1rem] p-4")}>
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-950 dark:text-white">
               <Bot className="h-4 w-4 text-sky-700 dark:text-sky-300" /> {promptTitle}
             </div>
@@ -167,24 +167,24 @@ export function SherpAIWindow({
                   key={item}
                   type="button"
                   onClick={() => submitPrompt(item)}
-                  className="rounded-[0.95rem] border border-slate-200 bg-white px-3 py-2 text-left text-sm text-slate-700 transition hover:-translate-y-0.5 hover:border-sky-200 hover:bg-sky-50/50 dark:border-white/10 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-400/20 dark:hover:bg-slate-800"
+                  className="rounded-[0.95rem] border border-slate-200/90 bg-white/95 px-3 py-2 text-left text-sm text-slate-800 shadow-[0_10px_24px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-sky-200 hover:bg-sky-50/70 dark:border-white/10 dark:bg-slate-900/92 dark:text-slate-100 dark:hover:border-sky-400/20 dark:hover:bg-slate-800"
                 >
                   {item}
                 </button>
               ))}
             </div>
-            <div className="mt-4 flex items-start gap-2 rounded-[0.95rem] border border-sky-200/80 bg-white px-3 py-2 text-sm text-slate-700 dark:border-sky-400/20 dark:bg-slate-900 dark:text-slate-200">
+            <div className="mt-4 flex items-start gap-2 rounded-[0.95rem] border border-sky-200/80 bg-sky-50/92 px-3 py-2 text-sm text-slate-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:border-sky-400/20 dark:bg-sky-500/10 dark:text-slate-100">
               <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-sky-700 dark:text-sky-300" />
               <span>{handoff}</span>
             </div>
           </div>
         ) : children ? null : (
-          <div className="rounded-[0.95rem] border border-slate-200/80 bg-[linear-gradient(180deg,#f8fafc_0%,#f2f7fb_100%)] px-3 py-2 text-sm text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+          <div className="glass-popover rounded-[0.95rem] px-3 py-2 text-sm text-slate-800 dark:text-slate-100">
             {handoff}
           </div>
         )}
 
-        <div className="mt-4 rounded-[1.05rem] border border-slate-200/80 bg-[linear-gradient(180deg,#f8fafc_0%,#eef4f8_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.03)_100%)]">
+        <div className="glass-panel mt-4 rounded-[1.05rem] p-4">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
               <div className="flex items-center gap-2 text-sm font-semibold text-slate-950 dark:text-white">
@@ -196,7 +196,7 @@ export function SherpAIWindow({
               <button
                 type="button"
                 onClick={() => setChatOpen((current) => !current)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-sky-200 hover:bg-sky-50 dark:border-white/10 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-400/20 dark:hover:bg-slate-800"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/90 bg-white/95 text-slate-700 shadow-[0_10px_20px_rgba(15,23,42,0.06)] transition hover:border-sky-200 hover:bg-sky-50 dark:border-white/10 dark:bg-slate-900/92 dark:text-slate-100 dark:hover:border-sky-400/20 dark:hover:bg-slate-800"
                 aria-label={chatOpen ? "Collapse chat" : "Expand chat"}
               >
                 {chatOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -209,7 +209,7 @@ export function SherpAIWindow({
               <div
                 ref={messagesRef}
                 className={cn(
-                  "sherpai-scroll mt-3 min-h-[150px] space-y-3 rounded-[1rem] border border-slate-200/80 bg-white/90 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:border-white/10 dark:bg-slate-950/85",
+                  "glass-popover sherpai-scroll mt-3 min-h-[150px] space-y-3 rounded-[1rem] p-3",
                   chatScrollable ? [chatMaxHeightClass, "overflow-y-auto"] : "overflow-visible",
                 )}
               >
@@ -219,11 +219,11 @@ export function SherpAIWindow({
                     className={cn(
                       "max-w-[95%] rounded-[1rem] px-3 py-2.5 text-sm leading-6 shadow-[0_10px_24px_rgba(15,23,42,0.05)] sm:max-w-[88%]",
                       message.role === "assistant"
-                        ? "border border-sky-100 bg-[linear-gradient(180deg,#ffffff_0%,#f7fbff_100%)] text-slate-700 dark:border-sky-400/15 dark:bg-slate-900 dark:text-slate-200"
-                        : "ml-auto bg-[linear-gradient(180deg,#0f172a_0%,#162338_100%)] text-white dark:bg-[linear-gradient(180deg,#e2e8f0_0%,#f8fafc_100%)] dark:text-slate-950",
+                        ? "border border-sky-200/80 bg-white/96 text-slate-800 dark:border-sky-400/20 dark:bg-slate-900/96 dark:text-slate-100"
+                        : "ml-auto border border-slate-900/10 bg-[linear-gradient(180deg,#0f172a_0%,#162338_100%)] text-white dark:border-sky-300/20 dark:bg-[linear-gradient(180deg,rgba(56,189,248,0.24)_0%,rgba(15,23,42,0.98)_100%)] dark:text-slate-50",
                     )}
                   >
-                    <div className="mb-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
+                    <div className="mb-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
                       {message.role === "assistant" ? "Guide" : "You"}
                     </div>
                     <div>{message.text}</div>
@@ -238,7 +238,7 @@ export function SherpAIWindow({
                       key={item}
                       type="button"
                       onClick={() => submitPrompt(item)}
-                      className="shrink-0 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-600 transition hover:border-sky-200 hover:bg-sky-50/70 dark:border-white/10 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-400/20 dark:hover:bg-slate-800"
+                      className="shrink-0 rounded-full border border-slate-200/90 bg-white/95 px-3 py-1.5 text-[11px] font-semibold text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition hover:border-sky-200 hover:bg-sky-50/70 dark:border-white/10 dark:bg-slate-900/92 dark:text-slate-100 dark:hover:border-sky-400/20 dark:hover:bg-slate-800"
                     >
                       {item}
                     </button>
@@ -258,7 +258,7 @@ export function SherpAIWindow({
                   onChange={(event) => setDraft(event.target.value)}
                   rows={composerRows}
                   placeholder="Ask about the current context or next step."
-                  className="min-h-[84px] w-full flex-1 resize-y rounded-[1rem] border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-700 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-100 dark:border-white/10 dark:bg-slate-900 dark:text-slate-200 dark:focus:border-sky-400/20 dark:focus:ring-sky-400/10"
+                  className="min-h-[84px] w-full flex-1 resize-y rounded-[1rem] border border-slate-200/90 bg-white/95 px-4 py-3 text-sm leading-6 text-slate-800 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition focus:border-sky-300 focus:ring-2 focus:ring-sky-100 dark:border-white/10 dark:bg-slate-900/94 dark:text-slate-100 dark:focus:border-sky-400/20 dark:focus:ring-sky-400/10"
                 />
                 <button
                   type="submit"
@@ -269,7 +269,7 @@ export function SherpAIWindow({
               </form>
             </>
           ) : (
-            <div className="mt-3 rounded-[0.95rem] border border-slate-200 bg-white px-3 py-3 text-sm text-slate-600 dark:border-white/10 dark:bg-slate-900 dark:text-slate-300">
+            <div className="glass-popover mt-3 rounded-[0.95rem] px-3 py-3 text-sm text-slate-700 dark:text-slate-200">
               Open the chat when you want a route read, comparison, or short operational brief for this terrain.
             </div>
           )}

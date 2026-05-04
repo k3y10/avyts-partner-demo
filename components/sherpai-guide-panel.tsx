@@ -64,14 +64,14 @@ export function SherpAIGuidePanel({ guide }: { guide: SherpAIGuideModel }) {
       collapsibleChat
       defaultChatOpen={false}
     >
-        <div className="rounded-[1rem] bg-slate-50 p-4 dark:bg-white/5">
+        <div className="rounded-[1rem] border border-slate-200/80 bg-white/92 p-4 shadow-[0_12px_28px_rgba(15,23,42,0.05)] dark:border-white/10 dark:bg-slate-900/82">
           <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-700 dark:text-sky-300">Brief</div>
           <div className="mt-2 text-base font-semibold text-slate-950 dark:text-white">{guide.forecastTitle}</div>
           <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-200">{guide.forecastNarrative}</p>
         </div>
 
         <div className="mt-4 grid gap-3 xl:grid-cols-2">
-          <div className="rounded-[1rem] bg-slate-50 p-4 dark:bg-white/5">
+          <div className="rounded-[1rem] border border-slate-200/80 bg-white/92 p-4 shadow-[0_12px_28px_rgba(15,23,42,0.05)] dark:border-white/10 dark:bg-slate-900/82">
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
               <ShieldAlert className="h-4 w-4 text-sky-700 dark:text-sky-300" /> Do now
             </div>
@@ -82,7 +82,7 @@ export function SherpAIGuidePanel({ guide }: { guide: SherpAIGuideModel }) {
             </div>
           </div>
 
-          <div className="rounded-[1rem] bg-slate-50 p-4 dark:bg-white/5">
+          <div className="rounded-[1rem] border border-slate-200/80 bg-white/92 p-4 shadow-[0_12px_28px_rgba(15,23,42,0.05)] dark:border-white/10 dark:bg-slate-900/82">
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
               <Sparkles className="h-4 w-4 text-sky-700 dark:text-sky-300" /> Key reason
             </div>

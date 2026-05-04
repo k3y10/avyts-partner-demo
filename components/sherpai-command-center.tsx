@@ -103,37 +103,37 @@ export function SherpAICommandCenter() {
       )}
     >
       {open ? (
-        <div className="pointer-events-auto w-full transition-colors duration-200 sm:max-w-[380px]">
+        <div className="pointer-events-auto w-full transition-colors duration-200 sm:max-w-[360px]">
           <SherpAIWindow
-            kicker="SherpAI Agent Window"
-            title={copy.title}
-            summary={copy.description}
-            roleLabel="AI Field Guide"
+            kicker="SherpAI"
+            title={copy.modeLabel}
+            summary={`Focused on ${copy.modeLabel.toLowerCase()}. Ask what this page does, what to do next, or jump to another workflow.`}
             modeLabel={copy.modeLabel}
             contextPills={copy.contextPills}
             suggestedPrompts={copy.prompts}
             handoff="SherpAI stays in one interface across the site so terrain, observations, and reports all share the same operating context."
-            introMessage={`I’m online in ${copy.modeLabel.toLowerCase()} mode. Ask what this page is for, what to do next, or how to move into terrain, observation, or reporting work without losing context.`}
+            introMessage={`I’m in ${copy.modeLabel.toLowerCase()} mode. Ask what this page is for, what to do next, or jump to another workflow.`}
             buildReply={buildReply}
-            chatContextLabel="Context locked to current page"
             showPromptPack={false}
-            quickReplyCount={2}
+            quickReplyCount={1}
             composerRows={2}
-            className="max-h-[min(78vh,720px)]"
+            hideModeBadge
+            showContextPills={false}
+            showQuickReplies={false}
+            showChatContextLabel={false}
+            chatTitle="Ask SherpAI"
+            className="max-h-[min(72vh,640px)]"
           >
             <div className="flex items-center justify-between gap-3">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Quick navigation</div>
-              <button onClick={() => setOpen(false)} className="rounded-full border border-slate-200 bg-white p-2 text-slate-600 shadow-sm transition-all duration-200 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-950 dark:border-white/10 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-400/30 dark:hover:bg-slate-800 dark:hover:text-white">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Jump to</div>
+              <button onClick={() => setOpen(false)} aria-label="Close SherpAI window" className="rounded-full border border-slate-200 bg-white p-2 text-slate-600 shadow-sm transition-colors duration-150 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-950 dark:border-white/10 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-400/30 dark:hover:bg-slate-800 dark:hover:text-white">
                 <ChevronUp className="h-4 w-4" />
               </button>
             </div>
-            <div className="mt-3 grid gap-2">
-              <QuickLink href="/map" icon={MapPinned} label="Terrain brief" active={pathname === "/map"} />
-              <QuickLink href="/observations" icon={FileAudio} label="Observation intake" active={pathname === "/observations"} />
-              <QuickLink href="/reports" icon={RadioTower} label="Report digest" active={pathname === "/reports"} />
-            </div>
-            <div className="mt-3 rounded-[0.9rem] border border-sky-200 bg-sky-50 px-3 py-2 text-sm text-slate-700 dark:border-sky-400/15 dark:bg-sky-400/10 dark:text-slate-200">
-              SherpAI keeps this popup lightweight off-map. The map keeps its own dedicated right-side agent workspace.
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <QuickLink href="/map" icon={MapPinned} label="Terrain" active={pathname === "/map"} />
+              <QuickLink href="/observations" icon={FileAudio} label="Observe" active={pathname === "/observations"} />
+              <QuickLink href="/reports" icon={RadioTower} label="Reports" active={pathname === "/reports"} className="col-span-2" />
             </div>
           </SherpAIWindow>
         </div>
@@ -141,10 +141,10 @@ export function SherpAICommandCenter() {
       <Button
         onClick={() => setOpen((value) => !value)}
         className={cn(
-          "pointer-events-auto h-14 rounded-full border px-4 text-white shadow-[0_18px_44px_rgba(15,23,42,0.24)] transition-all duration-200",
+          "pointer-events-auto h-14 rounded-full border px-4 text-white shadow-[0_16px_36px_rgba(15,23,42,0.22)] transition-colors duration-150",
           open
-            ? "border-slate-900 bg-slate-900 text-white dark:border-sky-400/30 dark:bg-slate-900"
-            : "border-slate-900/12 bg-slate-950/94 text-white hover:-translate-y-0.5 hover:border-sky-400/30 hover:bg-slate-900 hover:shadow-[0_26px_60px_rgba(15,23,42,0.34)] dark:border-white/10 dark:bg-slate-950/94 dark:hover:border-sky-400/35 dark:hover:bg-slate-900",
+            ? "border-sky-700 bg-sky-700 text-white dark:border-sky-500 dark:bg-sky-500 dark:text-slate-950"
+            : "border-sky-700 bg-sky-700 text-white hover:bg-sky-800 dark:border-sky-500 dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400",
         )}
       >
         <Image src="/brand/sherpai.png" alt="SherpAI" width={22} height={22} className="mr-2 rounded-full" /> SherpAI
@@ -153,22 +153,20 @@ export function SherpAICommandCenter() {
   );
 }
 
-function QuickLink({ href, icon: Icon, label, active }: { href: string; icon: LucideIcon; label: string; active: boolean }) {
+function QuickLink({ href, icon: Icon, label, active, className }: { href: string; icon: LucideIcon; label: string; active: boolean; className?: string }) {
   return (
     <Link
       href={href}
       className={cn(
-        "flex items-center justify-between rounded-[1rem] border px-3 py-2.5 text-sm font-medium transition-all duration-200",
+        "flex items-center gap-2 rounded-[0.95rem] border px-3 py-2.5 text-sm font-medium transition-colors duration-150",
         active
           ? "border-slate-900 bg-slate-900 text-white shadow-[0_10px_24px_rgba(15,23,42,0.18)] dark:border-sky-400/20 dark:bg-slate-900"
-          : "border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:border-sky-400/25 dark:hover:bg-slate-900 dark:hover:text-white",
+          : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:border-sky-400/25 dark:hover:bg-slate-900 dark:hover:text-white",
+        className,
       )}
     >
-      <span className="flex items-center gap-2">
-        <Icon className="h-4 w-4" />
-        {label}
-      </span>
-      <span className="text-[11px] uppercase tracking-[0.2em]">Open</span>
+      <Icon className="h-4 w-4 shrink-0" />
+      <span className="truncate">{label}</span>
     </Link>
   );
 }
